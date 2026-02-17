@@ -44,6 +44,8 @@ create table bookmarks (
 );
 
 
-Problems Faced during this Project:--
-1️. Google OAuth – "Access Blocked" Error - Since Supabase callback URL was not added in Google Cloud Console
-2. Realtime Delete Not Updating UI - Postgres was not sending full row data for DELETE events, solved it by adding alter table bookmarks replica identity full;
+##Problems Faced during this Project:--
+
+1. Google OAuth – "Access Blocked" Error - Since Supabase callback URL was not added in Google Cloud Console
+2. Realtime Delete Not Updating UI - PostgreSQL was not sending full row data for DELETE events and Supabase Realtime requires replica identity full to emit proper DELETE payloads solved it by adding "alter table bookmarks replica identity full" as a new query.
+3. OAuth Production Redirect Failure - Mismatch between Local and Production URL caused this issue so I fixed it by adding Production URL in Supabase site URL.
